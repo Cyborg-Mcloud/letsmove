@@ -7,7 +7,7 @@
         version   = "0.0.1"
 		package="com.designge.letsmove"
 		xmlns:android="http://schemas.android.com/apk/res/android">
-    <name>Alibi</name>
+    <name>Let's Move</name>
 
 	
 	<icon src="icon_1024.jpg" />
