@@ -7,7 +7,7 @@
         version   = "0.0.1"
 		package="com.designge.letsmove"
 		xmlns:android="http://schemas.android.com/apk/res/android">
-    <name>Let's Move</name>
+    <name>Lets Move</name>
 
 	
 	<icon src="icon_1024.jpg" />
@@ -35,13 +35,13 @@
 
 <preference name="android-build-tool" value="gradle" /> 
 <!--<preference name="StatusBarOverlaysWebView" value="true" />-->
-	<preference name="phonegap-version" value="cli-8.0.0" /> 
-	<preference name="orientation" value="portrait" />
-	<preference name="target-device"              value="handset" />
+<preference name="phonegap-version" value="cli-8.0.0" /> 
+<preference name="orientation" value="portrait" />
+<preference name="target-device"              value="handset" />
 <!--	<preference name="fullscreen" value="true" />-->
-	<preference name="webviewbounce" value="true" />  
-	<preference name="DisallowOverscroll" value="false" />
-	<preference name="stay-in-webview"            value="false" /> 
+<preference name="webviewbounce" value="true" />  
+<preference name="DisallowOverscroll" value="false" />
+<preference name="stay-in-webview"            value="false" /> 
 
 <preference name="exit-on-suspend"            value="false" />          
 <preference name="show-splash-screen-spinner" value="false" />    
@@ -55,27 +55,23 @@
 <preference name="StatusBarBackgroundColor" value="#5c2b91" />
 <preference name="StatusBarStyle" value="lightcontent" />
 
-	<description>
+<description>
 Lets move
-    </description>
-	
-
-    <author href="http://design.ge" email="uabashidze@gmail.com">
-        Cyborg-Mcloud
-    </author>
+</description>
 
 
- 
-    <plugins>
+<author href="http://design.ge" email="uabashidze@gmail.com">
+	Cyborg-Mcloud
+</author>
 
 
 
-
+<plugins>
 
 	<feature name="App">
 	  <param name="android-package" value="com.designge.letsmove"/>
 	</feature>
-	
+
 	 
 	<feature name="http://api.phonegap.com/1.0/geolocation"/>
 	<feature name="http://api.phonegap.com/1.0/device" />
@@ -100,5 +96,5 @@ Lets move
 	<plugin name="cordova-android-support-gradle-release" spec="^1.1.1">
 		<variable name="ANDROID_SUPPORT_VERSION" value="26.0.1" />
 	</plugin>
-    </plugins>
+</plugins>
 </widget>
