@@ -21,59 +21,15 @@
 <allow-navigation href="*" />
 <allow-navigation href="*://*.smartgps.ge/*" />
 <allow-intent href="http://*/*" launch-external="yes"/>
-	<allow-intent href="https://*/*" launch-external="yes"/>
- <platform name="android">
-        <preference name="android-minSdkVersion" value="18" />
-        <allow-intent href="market:*" />
-    </platform>
+<allow-intent href="https://*/*" launch-external="yes"/>
+
+<platform name="android">
+	<preference name="android-minSdkVersion" value="18" />
+    <allow-intent href="market:*" />
+</platform>
 
 
-
-<platform name="ios">
-		<icon gap:platform="ios" src="icon_1024.jpg" width="1024" height="1024" />
-		<icon gap:platform="ios" width="40" height="40" src="icon_40.png"  />
-		<icon gap:platform="ios" width="80" height="80" src="icon_40-2x.png"  />
-		<icon gap:platform="ios" width="57" height="57" src="icon_57.png"  />
-		<icon gap:platform="ios" width="72" height="72" src="icon_72.png"  />
-		<icon gap:platform="ios" width="72" height="72" src="icon_60.png"  />
-		<icon gap:platform="ios" width="114" height="114" src="icon_57-2x.jpg" />
-		<icon gap:platform="ios" width="144" height="144" src="icon_72-2x.jpg"  />
-		<icon gap:platform="ios" width="120" height="120" src="icon_120.png"  />
-
-        <allow-intent href="itms:smartgps.ge"/>
-        <allow-intent href="itms-apps:smartgps.ge"/>
-		<gap:config-file platform="ios" parent="com.apple.developer.associated-domains" mode="replace">
-			<array>
-				<string>applinks:smartgps.ge</string>
-			</array>
-		</gap:config-file> 
-
-		  <config-file target="*-Debug.plist" parent="com.apple.developer.associated-domains">
-      <array>
-        <string>applinks:smartgps.ge</string>
-      </array>
-    </config-file>
-
-		<config-file target="*-Release.plist" parent="com.apple.developer.associated-domains">
-		  <array>
-			<string>applinks:smartgps.ge</string>
-		  </array>
-		</config-file>
-
-			<config-file platform="ios" target="Entitlements-*.plist" parent="com.apple.developer.associated-domains" mode="replace">
-
-			 <array>  
-
-				  <string>applinks:smartgps.ge</string>
-
-			 </array>
-
-		</config-file>
-
-	
-    </platform>
-
-	<gap:config-file platform="ios" parent="CFBundleShortVersionString">
+<gap:config-file platform="ios" parent="CFBundleShortVersionString">
     <string>1.5.7</string>
 </gap:config-file>
 
