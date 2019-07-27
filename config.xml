@@ -81,7 +81,7 @@ Lets move
 	<gap:plugin name="cordova-plugin-inappbrowser"  source="npm" />
 	<gap:plugin name="cordova-plugin-whitelist" source="npm" />
 
-
+	<gap:plugin name="cordova-plugin-fullscreen" source="npm" />
 	<gap:plugin name="cordova-plugin-request-location-accuracy" source="npm" />
 	<plugin name="cordova-plugin-globalization" source="npm" />
 	<gap:plugin name="cordova-plugin-inappbrowser"  source="npm" />
