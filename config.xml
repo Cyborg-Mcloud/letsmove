@@ -25,6 +25,7 @@
 
 <platform name="android">
 	<preference name="android-minSdkVersion" value="18" />
+
     <allow-intent href="market:*" />
 </platform>
 
@@ -47,7 +48,8 @@
 <preference name="show-splash-screen-spinner" value="false" />    
 <preference name="auto-hide-splash-screen"    value="false" />
 <preference name="disable-cursor"             value="false" />
-<preference name="android-minSdkVersion"      value="18" />         
+<preference name="android-minSdkVersion"      value="20" />       
+<!--<preference name="android-targetSdkVersion" value="28" />-->
 <preference name="android-installLocation"    value="auto" />
 <preference name="EnableViewportScale"    value="true" />
 
