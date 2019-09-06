@@ -78,7 +78,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 function StartWebView()
 	{
-	var url='http://smartgps.ge/letsmove/?myid='+myid+'&lat='+MyLat+'&lng='+MyLong;
+	var url='http://smartgps.ge/letsmove/?myid='+myid+'&lat='+MyLat+'&lng='+MyLong+"&ragacid="+Math.random()*10000000;
 	console.log(url);
 	//ref = cordova.InAppBrowser.open(url, '_system', 'location=no, clearcache=yes');
 	window.location=url;
