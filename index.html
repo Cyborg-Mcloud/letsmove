@@ -214,6 +214,37 @@ function eraseCookie(name) {
     document.cookie = name+'=; Max-Age=-99999999;';  
 }
 
+
+const push = PushNotification.init({
+	android: {
+	},
+    browser: {
+        pushServiceURL: 'http://push.api.phonegap.com/v1/push'
+    },
+	ios: {
+		alert: "true",
+		badge: "true",
+		sound: "true"
+	},
+	windows: {}
+});
+push.on('registration', (data) => {
+	console.log(data.registrationId);
+});
+
+push.on('notification', (data) => {
+	console.log(data.message);
+	console.log(data.title);
+	console.log(data.count);
+	console.log(data.sound);
+	console.log(data.image);
+	console.log(data.additionalData);
+});
+
+push.on('error', (e) => {
+	console.log(e.message);
+});
+
 setTimeout("StartWebView();",4000); 
 
 </script>
