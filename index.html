@@ -77,10 +77,12 @@ function onDeviceReady()
 			console.log("Registration Id:" + token);
 			window.localStorage.setItem("pnotif_id", token);
 		});
+		console.log("first lounch");
 		}
 	else
 		{
 		var token = window.localStorage.getItem("pnotif_id");
+		console.log("mytoken: "+token);
 		window.plugins.PushbotsPlugin.on("user:ids", function(data){
 		    console.log("user:ids" + JSON.stringify(data));
 			});	
