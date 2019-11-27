@@ -71,26 +71,34 @@ function onDeviceReady()
 
 	window.plugins.PushbotsPlugin.initialize("5dddf9233dcb8d26092358a5", {"android":{"sender_id":"754771780635"}});
 
-window.plugins.PushbotsPlugin.on("registered", function(token){
-			console.log("Registration Id:" + token);
-			window.localStorage.setItem("pnotif_id", token);
-		});
-
-window.plugins.PushbotsPlugin.on("user:ids", function(data){
-		    console.log("user:ids" + JSON.stringify(data));
-			});	
+	
+	var token;
+	var user_id;
+	
 	if (localStorage.getItem("pnotif_id") === null) 
 		{
-		
+		window.plugins.PushbotsPlugin.on("registered", function(token){
+		console.log("Registration Id:" + token);
+		window.localStorage.setItem("pnotif_id", token);
+		});
 		console.log("first lounch");
 		}
 	else
 		{
-		var token = window.localStorage.getItem("pnotif_id");
+		token = window.localStorage.getItem("pnotif_id");
 		console.log("mytoken: "+token);
 		
 		}
 
+	window.plugins.PushbotsPlugin.on("user:ids", function(data){
+		console.log("user:ids" + JSON.stringify(data));
+		token=data["token"];
+		window.localStorage.setItem("pnotif_id", token);
+		user_id=data["userId"];
+		window.localStorage.setItem("pnotifuser_id", token);
+
+
+		});	
 
 	
 //	setTimeout("StartWebView();",100); 
