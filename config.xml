@@ -94,9 +94,10 @@ Lets move
 	<gap:plugin name="cordova-plugin-inappbrowser"  source="npm" />
 
 
-	<plugin name="phonegap-plugin-push" source="npm">
-	    <param name="SENDER_ID" value="123456789" />
-	</plugin>
+	<gap:plugin name="pushbots-cordova-plugin" spec="1.6.x" source="npm" />
+
+
+
 
 	<plugin name="cordova.plugins.diagnostic" source="npm" />
 

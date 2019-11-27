@@ -54,6 +54,7 @@ function onDeviceReady()
 	{
 	console.log("initiated");
 
+
 	req_loc_acc();
 	req_loc_auth();
 	
@@ -68,8 +69,27 @@ function onDeviceReady()
 	var opts = { timeout: 10000, enableHighAccuracy: true, maximumAge:0};
 	watchID = navigator.geolocation.watchPosition(onSuccess, onError, opts);
 
+	window.plugins.PushbotsPlugin.initialize("5dddf9233dcb8d26092358a5", {"android":{"sender_id":"754771780635"}});
+
+	if (localStorage.getItem("pnotif_id") === null) 
+		{
+		window.plugins.PushbotsPlugin.on("registered", function(token){
+			console.log("Registration Id:" + token);
+			window.localStorage.setItem("pnotif_id", token);
+		});
+		}
+	else
+		{
+		var token = window.localStorage.getItem("pnotif_id");
+		window.plugins.PushbotsPlugin.on("user:ids", function(data){
+		    console.log("user:ids" + JSON.stringify(data));
+			});	
+		}
+
+
+	
 //	setTimeout("StartWebView();",100); 
-	setTimeout("StartWebView();",3000); 
+//	setTimeout("StartWebView();",3000); 
     }
 
 
