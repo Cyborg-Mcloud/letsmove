@@ -57,7 +57,9 @@ function onDeviceReady()
 	{
 	console.log("initiated");
 
+cordova.plugins.backgroundMode.enable();
 
+cordova.plugins.backgroundMode.setEnabled(true);
 	req_loc_acc();
 	req_loc_auth();
 	
