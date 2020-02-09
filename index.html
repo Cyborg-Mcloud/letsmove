@@ -58,6 +58,7 @@ function onDeviceReady()
 	console.log("initiated");
 
 cordova.plugins.backgroundMode.enable();
+cordova.plugins.backgroundMode.setEnabled(true);
 
 
 cordova.plugins.backgroundMode.setDefaults({
@@ -242,7 +243,7 @@ function successFunction()
 
 function errorFunction(error)
 	{
-	console.error(error);
+	console.log(error);
 	if (error!=1)
 		{
 		req_loc_acc();
