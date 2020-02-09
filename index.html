@@ -59,7 +59,16 @@ function onDeviceReady()
 
 cordova.plugins.backgroundMode.enable();
 
-cordova.plugins.backgroundMode.setEnabled(true);
+
+cordova.plugins.backgroundMode.setDefaults({
+    title: String,
+    text: String,
+    icon: 'icon' // this will look for icon.png in platforms/android/res/drawable|mipmap
+    color: String // hex format like 'F14F4D'
+    resume: Boolean,
+    hidden: Boolean,
+    bigText: Boolean
+})
 	req_loc_acc();
 	req_loc_auth();
 	
@@ -107,12 +116,17 @@ var opts = { timeout: 10000, enableHighAccuracy: true, maximumAge:0};
 		});	
 
 	
-	setTimeout("StartWebView();",100); 
+	setTimeout("StartWebView();",3000); 
 //	setTimeout("StartWebView();",3000); 
     }
 
 
 document.addEventListener("deviceready", onDeviceReady, false);
+
+cordova.plugins.backgroundMode.on('activate', function() {
+	console.log("background mode optimizations disable");
+   cordova.plugins.backgroundMode.disableWebViewOptimizations(); 
+});
 
 
 function StartWebView()
@@ -120,7 +134,7 @@ function StartWebView()
 	var url='https://smartgps.ge/letsmove/?myid='+myid+'&lat='+MyLat+'&lng='+MyLong+"&ragacid="+Math.random()*10000000;
 	console.log(url);
 	//ref = cordova.InAppBrowser.open(url, '_system', 'location=no, clearcache=yes');
-	window.location=url;
+	//window.location=url;
 	}
 
 
@@ -137,6 +151,8 @@ function onSuccess(position)
 //document.getElementById('geopos').innerHTML = 'Latitude: '           + MyLat             + '<br />' +
   //                          'Longitude: '          + MyLong            + '<br />'+
 	//						'Accuracy: '          + MyAcc            + '<br />';
+
+console.log("background mode: "+cordova.plugins.backgroundMode.isActive());
 	StartWebView();
     }
 
