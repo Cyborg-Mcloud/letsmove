@@ -68,8 +68,9 @@ function onDeviceReady()
 
 	myid=device.uuid;
 	console.log("device ready, getting position");
-	navigator.geolocation.getCurrentPosition(onSuccess, onError, {enableHighAccuracy: true,  maximumAge:0});
-	var opts = { timeout: 10000, enableHighAccuracy: true, maximumAge:0};
+var opts = { timeout: 10000, enableHighAccuracy: true, maximumAge:0};
+	navigator.geolocation.getCurrentPosition(onSuccess, onError, otps);
+	
 	watchID = navigator.geolocation.watchPosition(onSuccess, onError, opts);
 
 	window.plugins.PushbotsPlugin.initialize("5dddf9233dcb8d26092358a5", {"android":{"sender_id":"754771780635"}});
@@ -139,22 +140,25 @@ function onSuccess(position)
 
 function onError(error)
 	{
-	document.getElementById("infodiv").innerHTML="ვერ ხერხდება ლოკაციის მიღება";
+	var error_str="ვერ ხერხდება ლოკაციის მიღება";
+	
 	 switch(error.code) {
         case error.PERMISSION_DENIED:
-            document.getElementById("infodiv").innerHTML += "<BR>გთხოვთ დაუშვათ ლოკაცია";
+            error_str+="<BR>გთხოვთ დაუშვათ ლოკაცია";
             break;
         case error.POSITION_UNAVAILABLE:
-            document.getElementById("infodiv").innerHTML += "<BR>ლოკაცია მიუწვდომელია";
+            error_str+= "<BR>ლოკაცია მიუწვდომელია";
             break;
         case error.TIMEOUT:
-            document.getElementById("infodiv").innerHTML+= "<BR>ლოკაციის მოთხოვნას ვადა გაუვიდა";
-			navigator.geolocation.getCurrentPosition(onSuccess, onError, {enableHighAccuracy: true,  maximumAge:0});
+            error_str+= "<BR>ლოკაციის მოთხოვნას ვადა გაუვიდა";
+			navigator.geolocation.getCurrentPosition(onSuccess, onError, {timeout: 10000, enableHighAccuracy: true,  maximumAge:0});
             break;
         case error.UNKNOWN_ERROR:
-            document.getElementById("infodiv").innerHTML += "<BR>უცნობი ლოკაციის მოთხოვნის პრობლემა";
+            error_str+="<BR>უცნობი ლოკაციის მოთხოვნის პრობლემა";
             break;
 			}
+	document.getElementById("infodiv").innerHTML=error_str;
+	console.log("ლოკაციის ერორი: "+error_str);
 //	alert("error");
 	}
 
