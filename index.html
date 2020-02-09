@@ -68,7 +68,15 @@ cordova.plugins.backgroundMode.setDefaults({
     resume: true,
     hidden: false,
     bigText: false
-})
+});
+
+
+
+cordova.plugins.backgroundMode.on('activate', function() {
+	console.log("background mode optimizations disable");
+   cordova.plugins.backgroundMode.disableWebViewOptimizations(); 
+});
+
 	req_loc_acc();
 	req_loc_auth();
 	
@@ -80,7 +88,7 @@ cordova.plugins.backgroundMode.setDefaults({
 	myid=device.uuid;
 	console.log("device ready, getting position");
 var opts = { timeout: 10000, enableHighAccuracy: true, maximumAge:0};
-	navigator.geolocation.getCurrentPosition(onSuccess, onError, otps);
+	navigator.geolocation.getCurrentPosition(onSuccess, onError, opts);
 	
 	watchID = navigator.geolocation.watchPosition(onSuccess, onError, opts);
 
@@ -122,11 +130,6 @@ var opts = { timeout: 10000, enableHighAccuracy: true, maximumAge:0};
 
 
 document.addEventListener("deviceready", onDeviceReady, false);
-
-cordova.plugins.backgroundMode.on('activate', function() {
-	console.log("background mode optimizations disable");
-   cordova.plugins.backgroundMode.disableWebViewOptimizations(); 
-});
 
 
 function StartWebView()
