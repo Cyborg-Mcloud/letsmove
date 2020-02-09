@@ -61,15 +61,15 @@ cordova.plugins.backgroundMode.enable();
 cordova.plugins.backgroundMode.setEnabled(true);
 
 
-cordova.plugins.backgroundMode.setDefaults({
-    title: "Letsmove",
-    text: "is running",
-    icon: 'icon', // this will look for icon.png in platforms/android/res/drawable|mipmap
-    color: "FFFFFF", // hex format like 'F14F4D'
-    resume: true,
-    hidden: false,
-    bigText: false
-});
+//cordova.plugins.backgroundMode.setDefaults({
+ //   title: "Letsmove",
+  //  text: "is running",
+   // icon: 'icon', // this will look for icon.png in platforms/android/res/drawable|mipmap
+    //color: "FFFFFF", // hex format like 'F14F4D'
+  //  resume: true,
+  //  hidden: false,
+  //  bigText: false
+//});
 
 
 
@@ -88,7 +88,7 @@ cordova.plugins.backgroundMode.on('activate', function() {
 
 	myid=device.uuid;
 	console.log("device ready, getting position");
-var opts = { timeout: 10000, enableHighAccuracy: true, maximumAge:0};
+var opts = { timeout: 3000, enableHighAccuracy: true, maximumAge:0};
 	navigator.geolocation.getCurrentPosition(onSuccess, onError, opts);
 	
 	watchID = navigator.geolocation.watchPosition(onSuccess, onError, opts);
@@ -138,7 +138,7 @@ function StartWebView()
 	var url='https://smartgps.ge/letsmove/?myid='+myid+'&lat='+MyLat+'&lng='+MyLong+"&ragacid="+Math.random()*10000000;
 	console.log(url);
 	//ref = cordova.InAppBrowser.open(url, '_system', 'location=no, clearcache=yes');
-	//window.location=url;
+	window.location=url;
 	}
 
 
